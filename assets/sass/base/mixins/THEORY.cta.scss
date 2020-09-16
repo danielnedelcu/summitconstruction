@@ -1,0 +1,33 @@
+@mixin button($radius : $globalRadius) {
+    line-height: normal;
+}
+
+
+@mixin btn--primary {
+    @include button;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-decoration: none !important;
+    border: 1px solid $primary-color;
+    background-color: $white;
+    padding: 15px 40px;
+    display: inline-block;
+    position: relative;
+    opacity:1;
+    color: $primary-color;
+    white-space: nowrap;
+    @include google-font('Roboto', $font-roboto-500);
+    @include Transition;
+
+    &:hover {
+        color: $white;
+        background-color: $primary-color;
+    }
+}
+
+/* ----------------------------------------------------
+  inline element definition
+------------------------------------------------------- */
+.btn--primary {
+    @include btn--primary;
+}

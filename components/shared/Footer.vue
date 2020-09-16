@@ -1,0 +1,97 @@
+<template>
+  <footer class="footer d-flex">
+    <b-container fluid>
+      <div class="footer-wrapper d-flex justify-content-between">
+        <b-container>
+          <b-row>
+            <div class="col">
+              <LogoWhite />
+            </div>
+            <div class="col">
+              <ul class="footer-column">
+                <li>
+                  <span class="section-title">Location</span>
+                  <div class="textwidget">
+                    365 Gran Via de Corts,
+                    <br>
+                    Catalanes, BA 08015
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col">
+              <ul class="footer-column">
+                <li>
+                  <span class="section-title">Work inquiries</span>
+                  <div class="textwidget">
+                    Interested in working with us?
+                    <b>general@summitcon.net</b>
+                  </div>
+                </li>
+                <li>
+                  <span class="section-title">Phone</span>
+                  <div class="textwidget">
+                    404.644.4447
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </b-row>
+        </b-container>
+      </div>
+    </b-container>
+  </footer>
+</template>
+
+<script>
+import LogoWhite from '~/components/shared/LogoWhite.vue'
+
+export default {
+  // store,
+  components: {
+    LogoWhite
+  },
+
+  data () {
+    return {
+      // counter: this.showModal
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+@import '~/assets/sass/base/_index.scss';
+
+  .footer {
+    z-index: 10;
+    top: 0;
+    max-width: inherit;
+    width: 100%;
+    background-color: $black;
+    margin-top: 120px;
+    padding: 60px 0;
+
+    &-wrapper {
+      width: 100%;
+
+      .footer-column {
+        li {
+          margin-bottom: 30px;
+
+          .section-title {
+            margin-bottom: 15px;
+            color: $c;
+            display: block;
+            font-size: 1rem;
+            @include google-font('Roboto', $font-roboto-700);
+          }
+
+          .textwidget {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+</style>

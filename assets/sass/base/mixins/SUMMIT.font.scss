@@ -1,0 +1,9 @@
+@mixin google-font(
+$name : 'Roboto',
+$weights: 400,
+$styles : normal
+){
+  font-family: $name;
+  font-weight: $weights;
+  font-style: $styles;
+}
