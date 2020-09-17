@@ -25,7 +25,7 @@
                   <span class="section-title">Work inquiries</span>
                   <div class="textwidget">
                     Interested in working with us?
-                    <b>general@summitcon.net</b>
+                    <b><a href="mailto:general@summitcon.net">general@summitcon.net</a></b>
                   </div>
                 </li>
                 <li>
@@ -89,6 +89,10 @@ export default {
 
           .textwidget {
             color: $white;
+
+            a {
+              color: $white;
+            }
           }
         }
       }
