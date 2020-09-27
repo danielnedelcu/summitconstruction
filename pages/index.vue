@@ -4,7 +4,7 @@
       <Hero :data="heroObj" />
       <TeaserAbout :data="teaserObj" />
       <ReferencesGrid :data="referencesObj" />
-      <TeaserServices :data="servicesObj" :multifamily-data="multifamilyObj" :commercial-data="commercialObj" />
+      <!-- <TeaserServices :data="servicesObj" :multifamily-data="multifamilyObj" :commercial-data="commercialObj" /> -->
     </b-row>
   </b-container>
 </template>
@@ -14,7 +14,7 @@
 import Hero from '~/components/HomepageHero.vue'
 import TeaserAbout from '~/components/TeaserAbout.vue'
 import ReferencesGrid from '~/components/ReferencesGrid.vue'
-import TeaserServices from '~/components/TeaserServices.vue'
+// import TeaserServices from '~/components/TeaserServices.vue'
 import Services from '~/services/services.js'
 
 export default {
@@ -22,7 +22,7 @@ export default {
     Hero,
     TeaserAbout,
     ReferencesGrid,
-    TeaserServices
+    // TeaserServices
   },
 
   async asyncData (context) {
@@ -41,10 +41,10 @@ export default {
     return {
       heroObj: convertArrayToObject(contentArrr.filter(e => e.component === 'hero')),
       teaserObj: convertArrayToObject(contentArrr.filter(e => e.component === 'about-teaser')),
-      referencesObj: convertArrayToObject(contentArrr.filter(e => e.component === 'references-grid')),
-      servicesObj: convertArrayToObject(contentArrr.filter(e => e.component === 'services-teaser')),
-      multifamilyObj: convertArrayToObject(convertArrayToObject(contentArrr.filter(e => e.component === 'services-teaser')).multifamily.filter(e => e.component === 'multi-family-teaser')),
-      commercialObj: convertArrayToObject(convertArrayToObject(contentArrr.filter(e => e.component === 'services-teaser')).commercialPlaceholder.filter(e => e.component === 'commercial-teaser'))
+      referencesObj: convertArrayToObject(contentArrr.filter(e => e.component === 'references-grid'))
+      // servicesObj: convertArrayToObject(contentArrr.filter(e => e.component === 'services-teaser')),
+      // multifamilyObj: convertArrayToObject(convertArrayToObject(contentArrr.filter(e => e.component === 'services-teaser')).multifamily.filter(e => e.component === 'multi-family-teaser')),
+      // commercialObj: convertArrayToObject(convertArrayToObject(contentArrr.filter(e => e.component === 'services-teaser')).commercialPlaceholder.filter(e => e.component === 'commercial-teaser'))
     }
   },
 
