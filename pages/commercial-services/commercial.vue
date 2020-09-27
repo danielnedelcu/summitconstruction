@@ -66,6 +66,7 @@
 </template>
 
 <script>
+import { createSEOMeta } from '../../utils/seo'
 import Hero from '~/components/ServicesHero.vue'
 import AnimatedImage from '~/components/atoms/AnimatedImage.vue'
 import ContactUsTeaser from '~/components/ContactUsTeaser.vue'
@@ -76,6 +77,12 @@ export default {
     Hero,
     AnimatedImage,
     ContactUsTeaser
+  },
+
+  data () {
+    return {
+      pageTitle: 'Commercial Services'
+    }
   },
 
   async asyncData (context) {
@@ -106,9 +113,12 @@ export default {
 
   head () {
     return {
-      title: 'Commercial Services Page',
+      title: this.pageTitle,
       meta: [
-        { hid: 'description', name: 'description', content: 'Commercial Page for Commercial Services' }
+        ...createSEOMeta({
+          title: this.pageTitle,
+          description: "Summit construction offers extensive commercial services."
+        })
       ]
     }
   }

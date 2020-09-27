@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { createSEOMeta } from '../utils/seo'
 // import * as Constants from '../constants/constants'
 import Hero from '~/components/HomepageHero.vue'
 import TeaserAbout from '~/components/TeaserAbout.vue'
@@ -23,6 +24,12 @@ export default {
     TeaserAbout,
     ReferencesGrid,
     // TeaserServices
+  },
+
+  data () {
+    return {
+      pageTitle: 'Summit Construction Company'
+    }
   },
 
   async asyncData (context) {
@@ -50,9 +57,12 @@ export default {
 
   head () {
     return {
-      title: this.title,
+      title: this.pageTitle,
       meta: [
-        { hid: 'description', name: 'description', content: 'Summit Construction Home Page' }
+        ...createSEOMeta({
+          title: this.pageTitle,
+          description: "An innovative construction company"
+        })
       ]
     }
   }

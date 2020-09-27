@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { createSEOMeta } from '../../utils/seo'
 import Hero from '~/components/ServicesHero.vue'
 import ServicesContent from '~/components/ServicesContent.vue'
 import ServiceSteps from '~/components/ServiceSteps.vue'
@@ -22,6 +23,12 @@ export default {
     ServicesContent,
     ServiceSteps,
     ContactUsTeaser
+  },
+
+  data () {
+    return {
+      pageTitle: 'Interrior Renovation Services'
+    }
   },
 
   async asyncData (context) {
@@ -53,9 +60,12 @@ export default {
 
   head () {
     return {
-      title: 'Interior Renovations Page',
+      title: this.pageTitle,
       meta: [
-        { hid: 'description', name: 'description', content: 'Interior Renovations Page for Services' }
+        ...createSEOMeta({
+          title: this.pageTitle,
+          description: "Interrior removation services for multi-family projects."
+        })
       ]
     }
   }

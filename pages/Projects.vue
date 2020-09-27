@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { createSEOMeta } from '../utils/seo'
 // import * as Constants from '../constants/constants'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/swiper.scss'
@@ -68,6 +69,7 @@ export default {
 
   data () {
     return {
+      pageTitle: 'Project Showcase',
       swiperOption: {
         freeMode: true,
         slidesPerView: 'auto',
@@ -80,9 +82,12 @@ export default {
 
   head () {
     return {
-      title: this.title,
+      title: this.pageTitle,
       meta: [
-        { hid: 'description', name: 'description', content: 'Project Showcase Page' }
+        ...createSEOMeta({
+          title: this.pageTitle,
+          description: "A list of project summit construction has completed"
+        })
       ]
     }
   }
