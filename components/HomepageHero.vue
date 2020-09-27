@@ -7,9 +7,7 @@
           <b-container>
             <b-row>
               <div class="va w-50">
-                <h1 class="">
-                  {{ data.title }}
-                </h1>
+                <div class="h1-main" v-html="richtext" />
                 <p class="">
                   {{ data.subtitle }}
                 </p>
@@ -31,6 +29,17 @@ export default {
   data () {
     return {
     }
+  },
+
+  computed: {
+    richtext () {
+      return this.$storyapi.richTextResolver.render(this.data.title)
+    }
+  },
+
+  created () {
+    // eslint-disable-next-line no-console
+    console.dir(this.$storyapi.richTextResolver.render(this.data.title))
   }
 }
 </script>
@@ -167,6 +176,12 @@ export default {
     &-content {
       height: 100%;
     }
+
+   
+    h1 {
+      font-size: 74px !important;
+    }
+
 
     .background-darker {
       background-color: $black;
