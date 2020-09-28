@@ -7,9 +7,7 @@
             <h3 class="content-headline">
               {{ data.headline }}
             </h3>
-            <p class="content-description">
-              {{ richtext }}
-            </p>
+            <p v-html="richtext" class="content-description" />
           </div>
         </div>
         <div class="col">

@@ -35,7 +35,7 @@ export default {
     /**
      * Rtrieves all homepage data from Storyblok
      */
-    const response = await Services.getData('multifamily-services/external-renovations')
+    const response = await Services.getData('multifamily-services/exterior-renovations')
 
     const contentArrr = response.data.stories
 
