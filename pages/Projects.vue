@@ -10,6 +10,9 @@
               <swiper-slide v-for="projectItem in project.imagePlaceholder" :key="projectItem._uid">
                 <img :src="projectItem.url.filename">
               </swiper-slide>
+
+              <div class="swiper-button-prev daniel" slot="button-prev"></div>
+              <div class="swiper-button-next daniel" slot="button-next"></div>
             </swiper>
             <div class="project-information">
               <div class="project-information-group">
@@ -71,11 +74,15 @@ export default {
     return {
       pageTitle: 'Project Showcase',
       swiperOption: {
-        freeMode: true,
+        freeMode: false,
         slidesPerView: 'auto',
         loopedSlides: 'auto',
         spaceBetween: 70,
-        grabCursor: true
+        grabCursor: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
       }
     }
   },
@@ -151,6 +158,34 @@ export default {
         // -ms-transform: translate(0px, -50%);
         // transform: translate(0px, -50%);
       }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next
+    {
+      position: absolute;
+      top: 50%;
+      width: 27px;
+      width: 60px;
+      height: 60px;
+      margin-top: -22px;
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .swiper-button-next {
+      right: 10px;
+      left: auto;
+    }
+
+    .swiper-button-prev {
+      left: 10px;
+      right: auto;
     }
   }
 
