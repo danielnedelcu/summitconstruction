@@ -2,7 +2,7 @@
   <section class="section__services-teaser">
     <div class="wrapper">
       <div class="section__services-teaser-content d-flex justify-content-md-center">
-        <b-row>
+        <b-row class="w-50">
           <b-col align-self="center">
             <h2 class="teaser-headline">
               {{ data.headline }}
@@ -12,8 +12,36 @@
             </p>
           </b-col>
         </b-row>
+        <div class="bv-example-row">
+          <ul>
+            <li class="service-list">
+              <span>Electrical</span>
+            </li>
+            <li class="service-list">
+              <span>Plumbing</span>
+            </li>
+            <li class="service-list">
+              <span>Roofing</span>
+            </li>
+            <li class="service-list">
+              <span>HVAC</span>
+            </li>
+            <li class="service-list">
+              <span>Service One</span>
+            </li>
+            <li class="service-list">
+              <span>Service Two</span>
+            </li>
+            <li class="service-list">
+              <span>Paving</span>
+            </li>
+            <li class="service-list">
+              <span>Stucco</span>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="section__services-commercial d-flex">
+      <!-- <div class="section__services-commercial d-flex">
         <div class="col">
           <div class="boxed-content col-9">
             <h3>
@@ -25,7 +53,7 @@
           </div>
           <CommercialCard :data="commercialObj" />
         </div>
-      </div>
+      </div> -->
 
       <div class="section__services-teaser-grid d-flex">
         <div class="col">
@@ -40,7 +68,7 @@
 
           <b-row>
             <ServiceCard
-              v-for="service in multifamilyData.placeholder"
+              v-for="service in multifamilyObj.placeholder"
               :key="service._uid"
               :service="service"
             />
@@ -61,14 +89,18 @@ export default {
 
   props: {
     data: { type: Object, required: true },
-    multifamilyData: { type: Object, required: true },
-    commercialData: { type: Object, required: true }
+    multifamilyData: { type: Object, required: true }
   },
 
   data () {
     return {
-      commercialObj: this.convertArrayToObject(this.commercialData.placeholder)
+      multifamilyObj: this.convertArrayToObject(this.multifamilyData.filter(e => e.component === 'multi-family-teaser'))
     }
+  },
+
+  mounted () {
+   // eslint-disable-next-line no-console
+    console.dir(this.multifamilyData)
   },
 
   methods: {
@@ -80,16 +112,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import '~/assets/sass/base/_index.scss';
+
   .section__services-teaser {
     position: relative;
     display: flex;
     width: 100%;
-    margin: 200px 0;
+    margin: 50px 0 0;
 
     &-content {
       display: flex;
       flex-flow: column;
-      width: 33.33339%;
     }
 
     &-grid {
@@ -98,6 +131,24 @@ export default {
 
     .cta-wrapper {
       margin: 30px 0;
+    }
+
+    ul {
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      list-style: none;
+      background-color: $a;
+      
+      li {
+        padding: 30px;
+        text-align: center;
+
+        span {
+          @include google-font('Roboto', $font-roboto-700);
+          // @include google-font('Playfair Display', $font-playfair-400, normal);
+        }
+      }
     }
   }
 

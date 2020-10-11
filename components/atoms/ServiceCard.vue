@@ -1,23 +1,27 @@
 <template>
   <div class="col service">
-    <div v-inview:once.enter="inviewImageEnter" class="reveal">
-      <div :style="{backgroundImage: `url(${ service.image.filename })`}" class="service-image reveal-img">
-        <div class="service-wrapper d-flex">
-          <h2 class="service-headline">
-            {{ service.headline }}
-          </h2>
+    <div class="row">
+      <div class="services-description">
+        <h2 class="service-headline">
+          {{ service.headline }}
+        </h2>
+        <p>{{ service.description }}</p>
+      </div>
+      <div v-inview:once.enter="inviewImageEnter" class="reveal">
+        <div :style="{backgroundImage: `url(${ service.image.filename })`}" class="service-image reveal-img">
+          <div class="service-wrapper d-flex">
+            <!-- <h2 class="service-headline">
+              {{ service.headline }}
+            </h2> -->
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="services-description">
-      <p>{{ service.description }}</p>
-    </div>
-    <div class="cta-wrapper">
+    <!-- <div class="cta-wrapper">
       <n-link :to="ctaData.url.cached_url" class="btn-menu btn--primary">
         {{ ctaData.label }}
       </n-link>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -32,6 +36,11 @@ export default {
       inviewImageEnter: this.$inviewImageEnter,
       ctaData: this.service.ctaPlaceholder[0]
     }
+  },
+
+  mounted () {
+   // eslint-disable-next-line no-console
+    console.dir(this.service)
   }
 }
 </script>
@@ -41,8 +50,8 @@ export default {
 
   .service {
     flex-grow: 0;
-    flex-basis: 33.33339%;
-    margin-bottom: 13px;
+    flex-basis: 100%;
+    margin-bottom: 150px;
 
     &-image {
       background-repeat: no-repeat;
@@ -64,7 +73,7 @@ export default {
         top: 0;
         left: 0;
         background-color: #000;
-        opacity: 0.7;
+        opacity: 0;
       }
 
       .service-wrapper {
@@ -86,7 +95,8 @@ export default {
     }
 
     .services-description {
-      margin: 40px;
+      margin: 40px 0;
+      width: 50%;
     }
 
     .cta-wrapper {

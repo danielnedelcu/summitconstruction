@@ -47,7 +47,7 @@ export default {
     position: relative;
     display: flex;
     width: 100%;
-    margin: 200px 0;
+    margin: 50px 0;
 
     &-wrapper {
       visibility: visible;

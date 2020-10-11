@@ -20,11 +20,11 @@
           </n-link>
         </li>
 
-        <li class="menu-nav__li menu-nav__li--what-we-do has-sub" @:click="closeMenu">
-          <n-link to="" class="btn-menu">
+        <li class="menu-nav__li menu-nav__li--what-we-do" @:click="closeMenu">
+          <n-link to="/multifamily-services/multifamily" class="btn-menu">
             Multi Family
           </n-link>
-          <ul>
+          <!-- <ul>
             <li>
               <n-link to="/multifamily-services/external-renovations" class="btn-menu">
                 External Renovations
@@ -40,7 +40,7 @@
                 Interior Renovations
               </n-link>
             </li>
-          </ul>
+          </ul> -->
         </li>
 
         <li class="menu-nav__li menu-nav__li--what-we-do" @:click="closeMenu">
