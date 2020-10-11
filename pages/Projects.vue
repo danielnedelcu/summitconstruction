@@ -10,9 +10,12 @@
               <swiper-slide v-for="projectItem in project.imagePlaceholder" :key="projectItem._uid">
                 <img :src="projectItem.url.filename">
               </swiper-slide>
-
-              <div class="swiper-button-prev daniel" slot="button-prev"></div>
-              <div class="swiper-button-next daniel" slot="button-next"></div>
+              <div class="swiper-button-prev" slot="button-prev">
+                <div class="arrow" />
+              </div>
+              <div class="swiper-button-next arrow" slot="button-next">
+                <div class="arrow" />
+              </div>
             </swiper>
             <div class="project-information">
               <div class="project-information-group">
@@ -79,6 +82,9 @@ export default {
         loopedSlides: 'auto',
         spaceBetween: 70,
         grabCursor: true,
+        pagination: {
+          el: '.swiper-pagination'
+        },
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
@@ -102,48 +108,98 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '~/assets/sass/base/_index.scss';
 
-.section__project-list {
-  ul {
-    list-style: none;
+  .section__project-list {
+    ul {
+      list-style: none;
 
-    li {
-      position: relative;
-      margin-bottom: 200px;
-
-      .project-information {
-        min-width: 350px;
-        margin-left: 25vw;
-        padding-top: 100px;
-        padding-bottom: 100px;
-        padding-left: 3vw;
+      li {
         position: relative;
-        width: 25vw;
+        margin-bottom: 200px;
 
-        &-group {
-          margin-bottom: 15px;
+        .project-information {
+          min-width: 350px;
+          margin-left: 25vw;
+          padding-top: 100px;
+          padding-bottom: 100px;
+          padding-left: 3vw;
+          position: relative;
+          width: 25vw;
+
+          &-group {
+            margin-bottom: 15px;
+          }
         }
-      }
 
-      .background-gray {
-        position: absolute;
-        left: 25vw;
-        top: 40%;
-        right: 0px;
-        bottom: 0px;
-        z-index: -1;
-        display: block;
-        width: auto;
-        max-width: 75vw;
-        border-bottom-left-radius: 6px;
-        background-color: #f8f8f8;
-        -webkit-transform: translate(0px, 20px);
-        -ms-transform: translate(0px, 20px);
-        transform: translate(0px, 20px);
+        .background-gray {
+          position: absolute;
+          left: 25vw;
+          top: 40%;
+          right: 0px;
+          bottom: 0px;
+          z-index: -1;
+          display: block;
+          width: auto;
+          max-width: 75vw;
+          border-bottom-left-radius: 6px;
+          background-color: #f8f8f8;
+          -webkit-transform: translate(0px, 20px);
+          -ms-transform: translate(0px, 20px);
+          transform: translate(0px, 20px);
+        }
       }
     }
   }
-}
+
+  .swiper-button-prev,
+  .swiper-button-next
+  {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    margin: 0 20px 20px 0;
+    background-color: red;
+    border-radius: 50%;
+    top: 50%;
+    z-index: 999;
+
+    .arrow {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+
+  .swiper-button-next {
+    right: 0;
+
+    .arrow {
+      height: 15px;
+      width: 15px;
+      border: 1px solid $white;
+      border-width: 2px 2px 0 0;
+      transform: rotate(45deg);
+      right: 0;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 0;
+    
+    .arrow {
+      height: 15px;
+      width: 15px;
+      border: 1px solid $white;
+      border-width: 2px 2px 0 0;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(-135deg);
+      left: 0;
+  }
+  }
 
   .swiper {
 
@@ -158,34 +214,6 @@ export default {
         // -ms-transform: translate(0px, -50%);
         // transform: translate(0px, -50%);
       }
-    }
-
-    .swiper-button-prev,
-    .swiper-button-next
-    {
-      position: absolute;
-      top: 50%;
-      width: 27px;
-      width: 60px;
-      height: 60px;
-      margin-top: -22px;
-      z-index: 10;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: red;
-      border-radius: 50%;
-    }
-
-    .swiper-button-next {
-      right: 10px;
-      left: auto;
-    }
-
-    .swiper-button-prev {
-      left: 10px;
-      right: auto;
     }
   }
 
