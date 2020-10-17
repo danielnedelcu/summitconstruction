@@ -5,3 +5,9 @@
 .p-l-100 {
     padding-left: 100px;
 }
+
+.d-grid {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+}
