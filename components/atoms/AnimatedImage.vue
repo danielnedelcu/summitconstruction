@@ -1,7 +1,9 @@
 <template>
   <div class="col">
-    <div v-inview:once.enter="inviewImageEnter" class="reveal">
-      <img :src="animatedimage.image.filename" class="reveal-img">
+    <div class="row-mobile">
+      <div v-inview:once.enter="inviewImageEnter" class="reveal">
+        <img :src="animatedimage.image.filename" class="reveal-img">
+      </div>
     </div>
   </div>
 </template>

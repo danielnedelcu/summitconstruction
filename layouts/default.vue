@@ -32,6 +32,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/sass/base/_index.scss';
+
 html {
   font-family:
     'Roboto';
@@ -91,7 +93,11 @@ a {
 }
 
 .page-content {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
+
+  @include breakpoint(lg){
+    width: 95%;
+  }
 }
 </style>

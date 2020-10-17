@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~/assets/sass/base/_index.scss';
+  @import '~/assets/sass/base/_index.scss';
 
   .reference {
     flex-grow: 0;
@@ -48,11 +48,11 @@ export default {
     }
 
     &-wrapper {
-      padding: 50px 120px;
-      // box-shadow: 0 2px 2px rgba(0, 0, 0, 0.03),
-      //   0 4px 4px rgba(0, 0, 0, 0.03),
-      //   0 8px 8px rgba(0, 0, 0, 0.03),
-      //   0 0px 0px rgba(0, 0, 0, 0.03);
+      padding: 30px 10px;
+
+      @include breakpoint(lg){
+        padding: 50px 120px;
+      }
 
       img {
         width: 100%;

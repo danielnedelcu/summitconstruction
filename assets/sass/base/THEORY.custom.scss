@@ -6,8 +6,39 @@
     padding-left: 100px;
 }
 
+.p-l-r-15-m {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @include breakpoint(lg){
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 .d-grid {
     -webkit-column-count: 2;
        -moz-column-count: 2;
             column-count: 2;
+}
+
+.width-50 {
+    width: 100%;
+
+    @include breakpoint(lg){
+        width: 50%;
+    }
+}
+
+
+.row-mobile {
+    @include breakpoint(xs){
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    @include breakpoint(lg){ 
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

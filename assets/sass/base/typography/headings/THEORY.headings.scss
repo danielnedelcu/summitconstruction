@@ -1,6 +1,6 @@
 h1, .h1 {
     margin: 10px 0 20px;
-    font-size: 7.25vw;
+    font-size: 45px;
     line-height: 1.05;
     letter-spacing: -.02em;
 		font-weight: 800;
@@ -17,10 +17,6 @@ h1, .h1 {
 
 	@include breakpoint(lg){
 		font-size: 54px;
-	}
-
-	@include breakpoint(xl){
-		
 	}
 }
 

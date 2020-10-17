@@ -43,18 +43,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import '~/assets/sass/base/_index.scss';
+
   .section__references {
     position: relative;
     display: flex;
     width: 100%;
-    margin: 200px 0;
+    margin: 90px 0;
+
+    @include breakpoint(lg){
+      margin: 200px 0;
+    } 
 
     &-content {
       flex-flow: column;
 
       .section__references-grid {
         justify-content: space-between;
-        margin-top: 100px;
+        margin-top: 50px;
+
+        @include breakpoint(lg){
+          margin-top: 100px;
+        } 
       }
     }
   }

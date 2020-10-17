@@ -5,13 +5,25 @@
 </template>
 
 <style scoped lang="scss">
+@import '~/assets/sass/base/_index.scss';
+
 .NuxtLogo {
   animation: 1s appear;
   margin: 0;
   padding: 10px 0;
+  display: flex;
+  align-items: center;
+
+  @include breakpoint(lg){
+    height: 70px;
+  }
 
   img {
-    height: 70px;
+    height: 40px;
+
+    @include breakpoint(lg){
+      height: 70px;
+    }
   }
 }
 
