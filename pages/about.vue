@@ -19,7 +19,7 @@
               </div>
             </div>
 
-            <div class="setion__about-us-partner">
+            <div class="setion__about-us-partner row-mobile">
               <div class="col-md-4">
                 <img src="https://picsum.photos/350/300" class="w-100" />
               </div>
@@ -33,7 +33,7 @@
               </div>
             </div>
 
-            <div class="setion__about-us-partner">
+            <div class="setion__about-us-partner row-mobile">
               <div class="col">
                 <div class="d-grid d-flex partner">
                   <h3>Thomas Smith</h3>
@@ -117,7 +117,11 @@ async asyncData (context) {
   @import '~/assets/sass/base/_index.scss';
 
   .section__about-us {
-    margin: 150px 0;
+    margin: 80px 0;
+
+    @include breakpoint(lg){
+      margin: 150px 0;
+    } 
 
     &-wrapper {
       flex-flow: column;
@@ -131,7 +135,18 @@ async asyncData (context) {
     .setion__about-us-partner {
       display: flex;
       align-items: center;
-      padding: 100px 0;
+      padding: 50px 0;
+      flex-flow: column;
+
+      @include breakpoint(lg){
+        padding: 100px 0;
+        flex-flow: row;
+      } 
+
+      &:last-child {
+        justify-content: revert;
+        flex-flow: wrap-reverse;
+      }
 
       .partner {
         align-items: center;
@@ -139,6 +154,11 @@ async asyncData (context) {
         gap: 20px;
         flex-flow: column;
         align-items: flex-start;
+        margin-top: 30px;
+
+        @include breakpoint(lg){
+          margin-top: 0;
+        } 
       }
     }
   }
