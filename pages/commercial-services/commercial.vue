@@ -7,16 +7,18 @@
         <div class="wrapper">
           <div class="section__commercial-services-content-wrapper d-flex">
             <div class="col">
-              <div class="wrapper--content">
-                <h3 class="content-headline">
-                  Lorem first ipsum dolor sit amet
-                </h3>
-                <p class="content-description">
-                  Lorem first ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet est placerat in egestas erat imperdiet sed. Massa sed elementum tempus egestas sed sed risus pretium. Mauris vitae ultricies leo integer malesuada nunc vel. Tortor pretium viverra suspendisse potenti nullam. Felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Id consectetur purus ut faucibus. Platea dictumst quisque sagittis purus sit amet volutpat. Consequat mauris nunc congue nisi vitae suscipit. Sagittis vitae et leo duis.
-                </p>
-                <p class="content-description">
-                  Lorem first ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet est placerat in egestas erat imperdiet sed. Massa sed elementum tempus egestas sed sed risus pretium. Mauris vitae ultricies leo integer malesuada nunc vel. Tortor pretium viverra suspendisse potenti nullam. Felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Id consectetur purus ut faucibus. Platea dictumst quisque sagittis purus sit amet volutpat. Consequat mauris nunc congue nisi vitae suscipit. Sagittis vitae et leo duis.
-                </p>
+              <div class="row">
+                <div class="wrapper--content">
+                  <h3 class="content-headline">
+                    Lorem first ipsum dolor sit amet
+                  </h3>
+                  <p class="content-description">
+                    Lorem first ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet est placerat in egestas erat imperdiet sed. Massa sed elementum tempus egestas sed sed risus pretium. Mauris vitae ultricies leo integer malesuada nunc vel. Tortor pretium viverra suspendisse potenti nullam. Felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Id consectetur purus ut faucibus. Platea dictumst quisque sagittis purus sit amet volutpat. Consequat mauris nunc congue nisi vitae suscipit. Sagittis vitae et leo duis.
+                  </p>
+                  <p class="content-description">
+                    Lorem first ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet est placerat in egestas erat imperdiet sed. Massa sed elementum tempus egestas sed sed risus pretium. Mauris vitae ultricies leo integer malesuada nunc vel. Tortor pretium viverra suspendisse potenti nullam. Felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Id consectetur purus ut faucibus. Platea dictumst quisque sagittis purus sit amet volutpat. Consequat mauris nunc congue nisi vitae suscipit. Sagittis vitae et leo duis.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -129,7 +131,11 @@ export default {
   @import '~/assets/sass/base/_index.scss';
 
   .section__commercial-services-content {
-    margin: 100px 0;
+    margin: 50px 0;
+
+    @include breakpoint(lg){
+      margin: 100px 0;
+    }
 
     &-wrapper {
       margin-bottom: 120px;

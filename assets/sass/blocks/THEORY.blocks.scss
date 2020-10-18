@@ -18,7 +18,7 @@
 
 .#{$container-class}--content {
 	margin: 0 auto;
-	width: percentage(0.9);
+	width: 100%;
 	z-index: 1;
 	@include clearfix;
 
@@ -28,10 +28,7 @@
 	@include breakpoint(lg){
 		width: percentage(.65);
 		z-index: 5;
-	}
-	@include breakpoint(xl){
-		width: percentage(.65);
-		z-index: 5;
+		padding: 0;
 	}
 }
 

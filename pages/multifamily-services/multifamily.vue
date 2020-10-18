@@ -79,7 +79,11 @@ export default {
   @import '~/assets/sass/base/_index.scss';
 
   .section__commercial-services-content {
-    margin: 100px 0;
+    margin: 50px 0;
+
+    @include breakpoint(lg){
+      margin: 100px 0;
+    }
 
     &-wrapper {
       margin-bottom: 120px;

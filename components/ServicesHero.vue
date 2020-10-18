@@ -7,7 +7,7 @@
         <div class="section__hero-content d-flex align-items-center">
           <b-container>
             <b-row>
-              <div class="va w-50">
+              <div class="va width-50 p-l-r-15-m">
                 <div class="section__hero-content-wrapper">
                   <h1 class="">
                     {{ data.headline }}
@@ -45,12 +45,18 @@ export default {
 
   .reveal-box {
     position: relative;
-    height: 850px;
-    max-height: 850px;
+    height: 550px;
+    max-height: 550px;
     width: 100%;
     max-width: 100%;
     overflow: hidden;
-    margin-bottom: 120px;
+    margin-bottom: 90px;
+
+    @include breakpoint(lg){
+      height: 850px;
+      max-height: 850px;
+      margin-bottom: 120px;
+    } 
   }
 
   .reveal-box__inner{
@@ -154,18 +160,29 @@ export default {
     justify-content: center;
     width: 100%;
     color: $white;
-    max-height: 850px;
-    margin-top: 90px;
-    margin-bottom: 120px;
+    max-height: 550px;
+    margin-top: 70px;
+    margin-bottom: 80px;
 
     &-image {
       background-repeat: no-repeat;
       background-position: center center;
       -ms-background-size: inherit;
       background-size: cover;
-      height: 850px;
+      height: 550px;
       width: 100%;
     }
+
+    @include breakpoint(lg){
+      max-height: 850px;
+      margin-top: 90px;
+      margin-bottom: 90px;
+
+      &-image {
+        height: 850px;
+        margin-bottom: 120px;
+      }
+    } 
 
     &-content {
       height: 100%;

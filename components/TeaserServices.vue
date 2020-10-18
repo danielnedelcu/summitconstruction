@@ -2,9 +2,9 @@
   <section class="section__services-teaser">
     <div class="wrapper">
       <div class="section__services-teaser-content d-flex justify-content-md-center">
-        <b-row class="w-50">
+        <b-row class="width-50">
           <b-col align-self="center">
-            <h2 class="teaser-headline">
+            <h2 class="teaser-headline">  
               {{ data.headline }}
             </h2>
             <p class="teaser-descrition">
@@ -12,7 +12,7 @@
             </p>
           </b-col>
         </b-row>
-        <div class="bv-example-row">
+        <div class="bv-example-row row-mobile">
           <ul>
             <li class="service-list">
               <span>Electrical</span>
@@ -136,9 +136,14 @@ export default {
     ul {
       padding: 0;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       list-style: none;
       background-color: $a;
+
+      @include breakpoint(lg){
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
       
       li {
         padding: 30px;

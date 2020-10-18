@@ -78,16 +78,23 @@ export default {
       pageTitle: 'Project Showcase',
       swiperOption: {
         freeMode: false,
-        slidesPerView: 'auto',
+        slidesPerView: 1,
         loopedSlides: 'auto',
-        spaceBetween: 70,
+        spaceBetween: 10,
         grabCursor: true,
+        centeredSlides: true,
         pagination: {
           el: '.swiper-pagination'
         },
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 'auto',
+            spaceBetween: 70
+          }
         }
       }
     }
@@ -113,19 +120,26 @@ export default {
   .section__project-list {
     ul {
       list-style: none;
+      padding: 0;
 
       li {
         position: relative;
         margin-bottom: 200px;
 
         .project-information {
-          min-width: 350px;
-          margin-left: 25vw;
           padding-top: 100px;
           padding-bottom: 100px;
-          padding-left: 3vw;
           position: relative;
-          width: 25vw;
+          width: 80%;
+          margin-left: 6  0px;
+          padding-left: 0;
+
+          @include breakpoint(lg){ 
+            width: 25vw;
+            padding-left: 3vw;
+            margin-left: 25vw;
+            min-width: 350px;
+          }   
 
           &-group {
             margin-bottom: 15px;
@@ -134,19 +148,24 @@ export default {
 
         .background-gray {
           position: absolute;
-          left: 25vw;
+          left: 40px;
           top: 40%;
           right: 0px;
           bottom: 0px;
           z-index: -1;
           display: block;
           width: auto;
-          max-width: 75vw;
           border-bottom-left-radius: 6px;
           background-color: #f8f8f8;
           -webkit-transform: translate(0px, 20px);
           -ms-transform: translate(0px, 20px);
           transform: translate(0px, 20px);
+
+          @include breakpoint(lg){ 
+            left: 25vw;
+            max-width: 75vw;
+            width: auto;
+          }
         }
       }
     }
@@ -176,6 +195,11 @@ export default {
 
   .swiper-button-next {
     right: 0;
+    margin: 0 10px 20px 0;
+
+    @include breakpoint(lg){ 
+      margin: 0 20px 20px 0;
+    }      
 
     .arrow {
       height: 15px;
@@ -189,6 +213,11 @@ export default {
 
   .swiper-button-prev {
     left: 0;
+    margin: 0 10px 0 10px;
+
+    @include breakpoint(lg){ 
+      margin: 0 20px 0 20px;
+    }   
     
     .arrow {
       height: 15px;
@@ -209,7 +238,11 @@ export default {
       img {
         width: 100%;
         top: 50%;
-        width: 35vw;
+        width: auto;
+
+        @include breakpoint(lg){ 
+          width: 35vw;
+        }
         // -webkit-transform: translate(0px, -50%);
         // -ms-transform: translate(0px, -50%);
         // transform: translate(0px, -50%);

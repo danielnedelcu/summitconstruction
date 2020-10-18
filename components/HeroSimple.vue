@@ -3,7 +3,7 @@
     <div class="section__hero-simple-content d-flex align-items-center">
       <b-container>
         <b-row>
-          <div class="va w-50">
+          <div class="va width-50">
             <h1 class="">
               {{ data.headline }}
             </h1>
@@ -41,29 +41,45 @@ export default {
     justify-content: center;
     width: 100%;
     color: $white;
-    max-height: 850px;
+    max-height: 550px;
     margin-top: 90px;
-    margin-bottom: 120px;
-    padding-top: calc(120px + 9vw)!important;
-    padding-bottom: 120px;
+    margin-bottom: 90px;
+    padding-top: calc(90px + 9vw)!important;
+    padding-bottom: 90px;
+
+    @include breakpoint(lg){ 
+      max-height: 850px;
+      margin-top: 90px;
+      margin-bottom: 120px;
+      padding-top: calc(120px + 9vw)!important;
+      padding-bottom: 120px;
+    }
 
     &-content {
       height: 100%;
       color: $primary-color;
+      padding: 0 15px;
+
+      @include breakpoint(lg){ 
+        padding: 0;
+      }
     }
 
     .va {
-      display: table;
-      table-layout: fixed;
+      display: block;
       height: 100%;
       width: 100%;
       margin: 0;
-      padding: 0;
       border: none;
       border-spacing: 0;
       border-collapse: collapse;
       box-sizing: border-box;
       z-index: 10;
+
+      @include breakpoint(lg){ 
+        display: table;
+        table-layout: fixed;
+      }
     }
   }
 </style>

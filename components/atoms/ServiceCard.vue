@@ -51,7 +51,11 @@ export default {
   .service {
     flex-grow: 0;
     flex-basis: 100%;
-    margin-bottom: 150px;
+    margin-bottom: 70px;
+
+    @include breakpoint(lg){
+      margin-bottom: 150px;
+    }
 
     &-image {
       background-repeat: no-repeat;
@@ -96,7 +100,11 @@ export default {
 
     .services-description {
       margin: 40px 0;
-      width: 50%;
+      width: 100%;
+
+      @include breakpoint(lg){
+        width: 50%;
+      }
     }
 
     .cta-wrapper {

@@ -5,7 +5,7 @@
 
         <section class="section__about-us">
           <div class="wrapper">
-            <div class="section__about-us-wrapper d-flex">
+            <div class="section__about-us-wrapper row-mobile d-flex">
               <div class="col-md-8">
                 <h2 class="content-headline">
                   Lorem first ipsum dolor sit ametS
