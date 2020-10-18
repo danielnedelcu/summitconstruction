@@ -238,7 +238,7 @@ export default {
       img {
         width: 100%;
         top: 50%;
-        width: auto;
+        width: 100vw;
 
         @include breakpoint(lg){ 
           width: 35vw;
