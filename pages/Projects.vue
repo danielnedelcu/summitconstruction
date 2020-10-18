@@ -131,7 +131,7 @@ export default {
           padding-bottom: 100px;
           position: relative;
           width: 80%;
-          margin-left: 6  0px;
+          margin-left: 60px;
           padding-left: 0;
 
           @include breakpoint(lg){ 
