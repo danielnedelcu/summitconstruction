@@ -74,7 +74,7 @@ export default {
       border-spacing: 0;
       border-collapse: collapse;
       box-sizing: border-box;
-      z-index: 10;
+      z-index: 1;
 
       @include breakpoint(lg){ 
         display: table;

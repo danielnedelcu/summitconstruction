@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row>
       <Hero :data="heroObj" />
-
+      
       <TeaserServices :data="servicesObj" :multifamily-data="multifamilyObj"/>
 
 
@@ -42,7 +42,7 @@ export default {
     const contentArrr = response.data.stories[0].content
 
     // eslint-disable-next-line no-console
-    console.dir(contentArrr)
+    console.log('daniel', contentArrr)
 
     const convertArrayToObject = (array, key) =>
       // eslint-disable-next-line no-sequences

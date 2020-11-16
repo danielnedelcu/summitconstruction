@@ -12,9 +12,7 @@
                   <h1 class="">
                     {{ data.headline }}
                   </h1>
-                  <p class="">
-                    {{ data.description }}
-                  </p>
+                  <p v-html="data.description" />
                 </div>
               </div>
             </b-row>

@@ -92,8 +92,16 @@ export default {
     width: inherit;
     background-color: $white;
 
+    @include breakpoint(lg){ 
+ 
+    }
+//padding: 10px 0;
     &-wrapper {
       width: 100%;
+
+      @include breakpoint(lg){ 
+        padding: 10px 0;
+      }
 
       #nav-menu {
           float: right;
@@ -102,6 +110,7 @@ export default {
           cursor: pointer;
           position: relative;
           z-index: 100;
+          display: block;
           @include Transition;
 
           .btn_menu_line {
@@ -167,15 +176,14 @@ export default {
                   }
               }
           }
-      }
-
-
-      @include breakpoint(lg){ 
-
+        @include breakpoint(lg){ 
+          display: none;
+        }
       }
     }
 
     #overlay-menu {
+        display: block;
         position: absolute;
         width: 100%;
         height: 100%;
@@ -195,6 +203,14 @@ export default {
         &.active {
             visibility: visible;
             opacity: 1;
+        }
+
+        @include breakpoint(lg){ 
+          opacity: 1;
+          visibility: visible;
+          justify-content: flex-end;
+          display: flex;
+          position: relative;
         }
     }
   }

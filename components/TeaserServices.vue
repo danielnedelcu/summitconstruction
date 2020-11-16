@@ -14,46 +14,14 @@
         </b-row>
         <div class="bv-example-row row-mobile">
           <ul>
-            <li class="service-list">
-              <span>Electrical</span>
-            </li>
-            <li class="service-list">
-              <span>Plumbing</span>
-            </li>
-            <li class="service-list">
-              <span>Roofing</span>
-            </li>
-            <li class="service-list">
-              <span>HVAC</span>
-            </li>
-            <li class="service-list">
-              <span>Service One</span>
-            </li>
-            <li class="service-list">
-              <span>Service Two</span>
-            </li>
-            <li class="service-list">
-              <span>Paving</span>
-            </li>
-            <li class="service-list">
-              <span>Stucco</span>
-            </li>
+            <ServiceItem
+                v-for="service in data.servicesListPlaceholder"
+                :key="service._uid"
+                :service="service"
+            />
           </ul>
         </div>
       </div>
-      <!-- <div class="section__services-commercial d-flex">
-        <div class="col">
-          <div class="boxed-content col-9">
-            <h3>
-              {{ commercialData.headline }}
-            </h3>
-            <p class="teaser-descrition">
-              {{ commercialData.description }}
-            </p>
-          </div>
-          <CommercialCard :data="commercialObj" />
-        </div>
-      </div> -->
 
       <div class="section__services-teaser-grid d-flex">
         <div class="col">
@@ -81,15 +49,17 @@
 
 <script>
 import ServiceCard from '~/components/atoms/ServiceCard.vue'
+import ServiceItem from '~/components/atoms/ServiceItem.vue'
 
 export default {
   components: {
-    ServiceCard
+    ServiceCard,
+    ServiceItem
   },
 
   props: {
     data: { type: Object, required: true },
-    multifamilyData: { type: Object, required: true }
+    multifamilyData: { type: Array, required: true }
   },
 
   data () {
@@ -123,6 +93,10 @@ export default {
     &-content {
       display: flex;
       flex-flow: column;
+
+      .teaser-headline {
+        margin-bottom: 50px;
+      }
     }
 
     &-grid {
@@ -134,25 +108,18 @@ export default {
     }
 
     ul {
-      padding: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      padding: 10px;
+      // display: grid;
+      // grid-template-columns: 1fr 1fr;
       list-style: none;
-      background-color: $a;
+      display: block;
+      margin: 20px 0;
+      @include clearfix;
 
       @include breakpoint(lg){
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-
-      
-      li {
-        padding: 30px;
-        text-align: center;
-
-        span {
-          @include google-font('Roboto', $font-roboto-700);
-          // @include google-font('Playfair Display', $font-playfair-400, normal);
-        }
+        padding: 0;
+        margin: 50px 0;
+        // grid-template-columns: 1fr 1fr 1fr;
       }
     }
   }

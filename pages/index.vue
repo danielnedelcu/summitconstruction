@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import { createSEOMeta } from '../utils/seo'
 // import * as Constants from '../constants/constants'
 import Hero from '~/components/HomepageHero.vue'
@@ -17,6 +18,7 @@ import TeaserAbout from '~/components/TeaserAbout.vue'
 import ReferencesGrid from '~/components/ReferencesGrid.vue'
 // import TeaserServices from '~/components/TeaserServices.vue'
 import Services from '~/services/services.js'
+import { ASSIGN_FOOTER_STATE } from '~/constants/actions.type'
 
 export default {
   components: {
@@ -46,6 +48,7 @@ export default {
       // eslint-disable-next-line no-sequences
       array.reduce((obj, item) => ((obj = item), obj), {})
     return {
+      footerObj: convertArrayToObject(response.data.stories[0].content.footerPlaceholder.filter(e => e.component === 'footer')),
       heroObj: convertArrayToObject(contentArrr.filter(e => e.component === 'hero')),
       teaserObj: convertArrayToObject(contentArrr.filter(e => e.component === 'about-teaser')),
       referencesObj: convertArrayToObject(contentArrr.filter(e => e.component === 'references-grid'))
@@ -65,6 +68,17 @@ export default {
         })
       ]
     }
+  },
+
+  mounted () {
+    console.log('DANIEL', this.footerObj)
+    this.assignFooter(this.footerObj)
+  },
+
+  methods: {
+    ...mapActions({
+      assignFooter: ASSIGN_FOOTER_STATE
+    })
   }
 }
 </script>

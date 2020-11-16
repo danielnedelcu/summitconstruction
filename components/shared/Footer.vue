@@ -14,11 +14,7 @@
                 <ul class="footer-column">
                   <li>
                     <span class="section-title">Location</span>
-                    <div class="textwidget">
-                      365 Gran Via de Corts,
-                      <br>
-                      Catalanes, BA 08015
-                    </div>
+                    <div v-html="footerData.location " class="textwidget" />
                   </li>
                 </ul>
               </div>
@@ -29,14 +25,14 @@
                   <li>
                     <span class="section-title">Work inquiries</span>
                     <div class="textwidget">
-                      Interested in working with us?
-                      <b><a href="mailto:general@summitcon.net">general@summitcon.net</a></b>
+                      {{ footerData.inquiries }}
+                      <b><a :href="footerData.email">{{ footerData.email }}</a></b>
                     </div>
                   </li>
                   <li>
                     <span class="section-title">Phone</span>
                     <div class="textwidget">
-                      404.644.4447
+                      {{ footerData.phone }}
                     </div>
                   </li>
                 </ul>
@@ -50,6 +46,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import LogoWhite from '~/components/shared/LogoWhite.vue'
 
 export default {
@@ -60,8 +57,16 @@ export default {
 
   data () {
     return {
-      // counter: this.showModal
+      footerData: {}
     }
+  },
+
+  computed: {
+    ...mapGetters({ getFooter: 'getFooterState' })
+  },
+
+  mounted () {
+    this.footerData = this.getFooter
   }
 }
 </script>
