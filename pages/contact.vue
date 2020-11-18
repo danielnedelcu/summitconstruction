@@ -4,54 +4,54 @@
       <div class="content-headline">
         <h2>Contact headline</h2>
       </div>
-      <v-app> 
-        <v-form
-          @submit.prevent="sendContactToLambdaFunction"
-          ref="form"
-          v-model="valid"
-          lazy-validation
-        >
-          <v-text-field
-            v-model="name"
-            :counter="70"
-            :rules="nameRules"
-            label="Name"
-            required
-          ></v-text-field>
-
-          <v-text-field
-            v-model="email"
-            :rules="emailRules"
-            label="E-mail"
-            required
-          ></v-text-field>
-
-          <v-textarea
-            v-model="message"
-            clearable
-            :rules="textareaRules"
-            clear-icon="mdi-close-circle"
-            label="Please enter your message"
-            required
-          ></v-textarea>
-
-          <v-btn
-            class="mr-4"
-            type="submit"
-            :disabled="!valid"
+      <v-container fluid>
+        <v-app> 
+          <v-form
+            @submit.prevent="sendContactToLambdaFunction"
+            ref="form"
+            v-model="valid"
+            lazy-validation
           >
-            submit
-          </v-btn>
+            <v-text-field
+              v-model="name"
+              :counter="70"
+              :rules="nameRules"
+              label="Name"
+              required
+            ></v-text-field>
 
-          <v-btn
-            color="error"
-            class="mr-4"
-            @click="reset"
-          >
-            Reset Form
-          </v-btn>
-        </v-form>
-      </v-app>
+            <v-text-field
+              v-model="email"
+              :rules="emailRules"
+              label="E-mail"
+              required
+            ></v-text-field>
+
+            <v-textarea
+              v-model="message"
+              :rules="textareaRules"
+              label="Please enter your message"
+              required
+            ></v-textarea>
+
+            <v-btn
+              class="mr-4"
+              type="submit"
+              :disabled="!valid"
+            >
+              submit
+            </v-btn>
+
+            <v-btn
+              color="error"
+              class="mr-4"
+              @click="reset"
+            >
+              Reset Form
+            </v-btn>
+          </v-form>
+        </v-app>
+      </v-container>
     </div>
   </section>
 </template>
@@ -126,10 +126,11 @@ export default {
   .section__contact {
     position: relative;
     display: flex;
-    padding: 250px 0;
+    padding: 250px 0 0;
 
     .content-headline {
       text-align: center;
+      margin-bottom: 100px;
     }
   }
 </style>
