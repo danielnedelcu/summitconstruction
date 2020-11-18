@@ -4,54 +4,83 @@
       <div class="content-headline">
         <h2>Contact headline</h2>
       </div>
-      <v-container fluid>
-        <v-app> 
-          <v-form
-            @submit.prevent="sendContactToLambdaFunction"
-            ref="form"
-            v-model="valid"
-            lazy-validation
-          >
-            <v-text-field
-              v-model="name"
-              :counter="70"
-              :rules="nameRules"
-              label="Name"
-              required
-            ></v-text-field>
-
-            <v-text-field
-              v-model="email"
-              :rules="emailRules"
-              label="E-mail"
-              required
-            ></v-text-field>
-
-            <v-textarea
-              v-model="message"
-              :rules="textareaRules"
-              label="Please enter your message"
-              required
-            ></v-textarea>
-
-            <v-btn
-              class="mr-4"
-              type="submit"
-              :disabled="!valid"
+      <div class="wrapper">
+        <v-container fluid>
+          <v-app> 
+            <v-form
+              @submit.prevent="sendContactToLambdaFunction"
+              ref="form"
+              v-model="valid"
+              lazy-validation
             >
-              submit
-            </v-btn>
 
-            <v-btn
-              color="error"
-              class="mr-4"
-              @click="reset"
-            >
-              Reset Form
-            </v-btn>
-          </v-form>
-        </v-app>
-      </v-container>
+            <v-snackbar
+                v-model="success"
+                color="blue-grey"
+                elevation="24"
+              >
+                {{ text }}
+
+                <template v-slot:action="{ attrs }">
+                  <v-btn
+                    color="white"
+                    text
+                    v-bind="attrs"
+                    @click="success = false"
+                  >
+                    Close
+                  </v-btn>
+                </template>
+              </v-snackbar>
+
+              <v-text-field
+                v-model="name"
+                :counter="70"
+                :rules="nameRules"
+                label="Name"
+                required
+                outlined
+              ></v-text-field>
+
+              <v-text-field
+                v-model="email"
+                :rules="emailRules"
+                label="E-mail"
+                required
+                outlined
+              ></v-text-field>
+
+              <v-textarea
+                v-model="message"
+                :rules="textareaRules"
+                label="Please enter your message"
+                outlined
+                required
+              ></v-textarea>
+
+              <v-btn
+                class="ma-2"
+                type="submit"
+                outlined
+                elevation="0"
+                color="primary"
+                :disabled="!valid"
+              >
+                submit
+              </v-btn>
+
+              <v-btn
+                class="ma-2"
+                outlined
+                color="warning"
+                @click="reset"
+              >
+                Reset Form
+              </v-btn>
+            </v-form>
+          </v-app>
+        </v-container>
+      </div>
     </div>
   </section>
 </template>
@@ -73,7 +102,10 @@ export default {
     message: '',
     textareaRules: [
       v => !!v || 'Message is required'
-    ]
+    ],
+    success: false,
+    myTimer: {},
+    text: ''
   }),
 
   methods: {
@@ -96,7 +128,18 @@ export default {
           message: this.message
         })
 
-        console.log('response', response.satus)
+        this.text = 'Message sent successfully!'
+        this.success = true
+        // if(this.success == true){
+        //   this.myTimer = window.setTimeout(() => {
+        //     this.success = false;
+        //   }, 3000);
+        //   this.success = !this.success 
+        // }else{
+        //   clearTimeout(this.myTimer);
+        //   this.resetTimer();
+        //   this.success = false
+        // }
 
         // this.$toast({
         //   title: 'Mail sent',
@@ -109,6 +152,7 @@ export default {
         this.reset()
 
       } catch (error) {
+        this.text = 'Error sending message. Try again'
         // this.$toast({
         //   title: 'An error occured',
         //   description: error,
