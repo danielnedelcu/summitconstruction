@@ -2,7 +2,7 @@
   command = "nuxt"
 
 [build]
-  command = "nuxt build"
+  command = "npm run build && npm run export"
   publish = "dist"
   functions = "functions"
 
