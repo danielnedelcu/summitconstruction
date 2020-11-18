@@ -2,7 +2,7 @@
   command = "nuxt"
 
 [build]
-  command = "nuxt generate"
+  command = "nuxt export"
   publish = "dist"
   functions = "functions"
 
