@@ -50,7 +50,8 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/vuetify'
   ],
   /*
   ** Nuxt.js modules
@@ -60,6 +61,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     ['storyblok-nuxt', { accessToke: '3ZBnXPfURnGOT3GlXsX5MAtt', cacheProvider: 'memory' }]
@@ -73,7 +75,9 @@ export default {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    baseURL: '/'
+  },
   /*
   ** Content module configuration
   ** See https://content.nuxtjs.org/configuration
