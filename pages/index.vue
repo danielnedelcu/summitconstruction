@@ -72,7 +72,7 @@ export default {
 
   mounted () {
     console.log('DANIEL', this.footerObj)
-    this.assignFooter(this.footerObj)
+    // this.assignFooter(this.footerObj)
   },
 
   methods: {

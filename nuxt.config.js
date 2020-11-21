@@ -66,6 +66,10 @@ export default {
     '@nuxt/content',
     ['storyblok-nuxt', { accessToke: '3ZBnXPfURnGOT3GlXsX5MAtt', cacheProvider: 'memory' }]
   ],
+  router: {
+    middleware: 'loadGlobals'
+  },
+
   bootstrapVue: {
     componentPlugins: [
       'LayoutPlugin'
