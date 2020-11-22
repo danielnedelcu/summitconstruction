@@ -1,6 +1,8 @@
 <template>
   <div class="NuxtLogo">
-    <img src="https://a.storyblok.com/f/88787/1663x752/2a60644fe6/summit-logo.png" class="logo">
+    <nuxt-link to="/">
+      <img src="https://a.storyblok.com/f/88787/1663x752/2a60644fe6/summit-logo.png" class="logo">
+    </nuxt-link>
   </div>
 </template>
 
